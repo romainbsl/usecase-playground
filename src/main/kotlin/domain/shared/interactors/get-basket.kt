@@ -1,8 +1,7 @@
 package domain.shared.interactors
 
-import domain.shared.UseCase
+import domain.shared.core.UseCase
 
-abstract class GetBasketUseCase(execute: suspend () -> Result<Basket>)
-    : UseCase<Basket>(execute)
+interface GetBasketUseCase : UseCase<Basket>
 
 data class Basket(val id: String)

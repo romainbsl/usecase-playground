@@ -1,5 +1,7 @@
+import basket.domain.interactors.BasketGetBasketCountUseCase
 import basket.domain.interactors.BasketGetBasketUseCase
 import domain.shared.interactors.FacilityServiceId
+import domain.shared.interactors.GetBasketCountUseCase
 import domain.shared.interactors.GetBasketUseCase
 import domain.shared.interactors.SwitchFacilityServiceUseCase
 import kotlinx.coroutines.runBlocking
@@ -13,6 +15,9 @@ fun main(): Unit = runBlocking {
     println() ; println("#----- Get basket in :basket module. -----#")
     val basketGetBasketUseCase = BasketGetBasketUseCase()
     with(basketGetBasketUseCase()) { println(this) }
+    println() ; println("#----- Get basket count in :basket module. -----#")
+    val basketGetBasketCountUseCase = BasketGetBasketCountUseCase()
+    with(basketGetBasketCountUseCase()) { println(this) }
 
     // In any module that know from :domain-shared
     println() ; println("#----- Switch facility from ANY module. -----#")
@@ -21,4 +26,7 @@ fun main(): Unit = runBlocking {
     println() ; println("#----- Get basket from ANY module. -----#")
     val getBasketUseCase: GetBasketUseCase = BasketGetBasketUseCase() // Injected
     with(getBasketUseCase()) { println(this) }
+    println() ; println("#----- Get basket count from ANY module. -----#")
+    val getBasketCountUseCase : GetBasketCountUseCase = BasketGetBasketCountUseCase()
+    with(getBasketCountUseCase()) { println(this) }
 }

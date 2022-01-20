@@ -1,9 +1,8 @@
 package domain.shared.interactors
 
-import domain.shared.UseCaseWithParameter
+import domain.shared.core.UseCaseWithParameter
 
-abstract class SwitchFacilityServiceUseCase(execute: suspend (FacilityServiceId) -> Result<Unit>)
-    : UseCaseWithParameter<FacilityServiceId, Unit>(execute)
+interface SwitchFacilityServiceUseCase : UseCaseWithParameter<FacilityServiceId, Unit>
 
 @JvmInline
 value class FacilityServiceId(val id: String)
